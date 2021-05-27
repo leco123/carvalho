@@ -20,5 +20,6 @@ public class CadastroProdutos {
         em.getTransaction().begin();
         em.persist(produto);
         em.getTransaction().commit();
+        em.close();
     }
 }
