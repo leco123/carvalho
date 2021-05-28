@@ -1,25 +1,29 @@
 package com.webstore.carvalho.testes;
 
+import com.webstore.carvalho.model.CategoriaProduto;
 import com.webstore.carvalho.model.Produto;
+import com.webstore.carvalho.util.persitence.Persistir;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.math.BigDecimal;
 
 public class CadastroProdutos {
 
     public static void main(String[] args) {
+        Persistir persistir = new Persistir();
+
+        CategoriaProduto catEletrodomesticos = new CategoriaProduto();
+        catEletrodomesticos.setNome("Eletrodomésticos");
+
         Produto produto = new Produto();
         produto.setNome("Celuar Xaiomi MI 9");
         produto.setDescricao(" Ótimo celular aqui vai a descrição do produto");
-        produto.setPreco(new BigDecimal(800));
+        produto.setPreco(new BigDecimal(500));
+        produto.setCategoriaProduto(catEletrodomesticos);
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("webstorecarvalho");
-        EntityManager  em = factory.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(produto);
-        em.getTransaction().commit();
-        em.close();
+        persistir.abrirTransacao()
+                .incluir(catEletrodomesticos)
+                .incluir(produto)
+                .fecharTransacao()
+                .fecharConexao();
     }
 }
