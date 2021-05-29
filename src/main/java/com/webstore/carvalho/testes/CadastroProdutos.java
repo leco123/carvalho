@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 public class CadastroProdutos {
 
     public static void main(String[] args) {
-        Persistir persistir = new Persistir();
+        Persistir<Object> persistir = new Persistir<>();
 
         CategoriaProduto catEletrodomesticos = new CategoriaProduto();
         catEletrodomesticos.setNome("Eletrodomésticos");
