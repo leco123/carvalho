@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @ApplicationScoped
-public class Persistir <Entidade> {
+public class CRUD <Entidade> {
 
     /**
      * CICLO DE VIDA JPA
@@ -34,11 +34,11 @@ public class Persistir <Entidade> {
         }
     }
 
-    public Persistir() {
+    public CRUD() {
         this(null);
     }
 
-    public Persistir(Class<Entidade> classe) {
+    public CRUD(Class<Entidade> classe) {
         this.classe = classe;
         em = emf.createEntityManager();
     }
@@ -49,7 +49,7 @@ public class Persistir <Entidade> {
      * quantas vezes for necessário
      * @return Object DAO<E>
      */
-    public Persistir<Entidade> abrirTransacao() {
+    public CRUD<Entidade> abrirTransacao() {
         em.getTransaction().begin();
         return this;
     }
@@ -60,7 +60,7 @@ public class Persistir <Entidade> {
      * quantas vezes for necessário
      * @return Object DAO<Entidade>
      */
-    public Persistir<Entidade> fecharTransacao() {
+    public CRUD<Entidade> fecharTransacao() {
         em.getTransaction().commit();
         return this;
     }
@@ -70,7 +70,7 @@ public class Persistir <Entidade> {
      * @return Object DAO<Entidade>
      * @param entidade
      */
-    public Persistir<Entidade> incluir(Entidade entidade) {
+    public CRUD<Entidade> incluir(Entidade entidade) {
         em.persist(entidade);
         return this;
     }
@@ -79,7 +79,7 @@ public class Persistir <Entidade> {
      * Incluir entidade a ser persistida
      * @return Object DAO<Entidade>
      */
-    public Persistir<Entidade> incluirAtomico(Entidade entidade) {
+    public CRUD<Entidade> incluirAtomico(Entidade entidade) {
         return this.abrirTransacao()
                 .incluir(entidade)
                 .fecharTransacao();
@@ -145,8 +145,18 @@ public class Persistir <Entidade> {
      * @param entidade
      * @return
      */
-    public Entidade atualizarUm(Entidade entidade){
-       return this.em.merge(entidade);
+    public Entidade atualizar(Entidade entidade) {
+        // devido não saber o estado da entidade, se faz necessário reatribuir o objeto (entidade)
+        entidade = em.merge(entidade);
+        return entidade;
+    }
+
+    public void remover(Entidade entidade) {
+        // devido não saber o estado da entidade, se faz necessário reatribuir o
+        // objeto (entidade) e definilo como estado manager,
+        // pra isso basta setar objeto como manager e depois remover
+        entidade = em.merge(entidade);
+        em.remove(entidade);
     }
 
     /**
@@ -162,5 +172,4 @@ public class Persistir <Entidade> {
     public void fecharConexao() {
         em.close();
     }
-
 }

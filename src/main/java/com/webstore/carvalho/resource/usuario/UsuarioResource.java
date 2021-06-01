@@ -6,7 +6,6 @@ import javax.annotation.security.PermitAll;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 @Path("/usuarios")
 public class UsuarioResource {

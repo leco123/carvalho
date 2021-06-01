@@ -2,14 +2,14 @@ package com.webstore.carvalho.testes;
 
 import com.webstore.carvalho.model.CategoriaProduto;
 import com.webstore.carvalho.model.Produto;
-import com.webstore.carvalho.util.persitence.Persistir;
+import com.webstore.carvalho.util.persitence.CRUD;
 
 import java.math.BigDecimal;
 
 public class CadastroProdutos {
 
     public static void main(String[] args) {
-        Persistir<Object> persistir = new Persistir<>();
+        CRUD<Object> crud = new CRUD<>();
 
         CategoriaProduto catEletrodomesticos = new CategoriaProduto();
         catEletrodomesticos.setNome("Eletrodomésticos");
@@ -20,7 +20,7 @@ public class CadastroProdutos {
         produto.setPreco(new BigDecimal(500));
         produto.setCategoriaProduto(catEletrodomesticos);
 
-        persistir.abrirTransacao()
+        crud.abrirTransacao()
                 .incluir(catEletrodomesticos)
                 .incluir(produto)
                 .fecharTransacao()
