@@ -5,11 +5,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Table(name = "PRODUTOS", schema = "public")
 @Entity
 public class Produto {
 
+    @Column(name = "PRODUTOID")
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,14 +34,13 @@ public class Produto {
     @ManyToOne(cascade = {CascadeType.PERSIST})
     private CategoriaProduto categoriaProduto;
 
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", preco=" + preco +
-                ", categoriaProduto=" + categoriaProduto +
-                '}';
-    }
+    @Getter @Setter
+    @Column(name = "datacadastro")
+    private LocalDateTime datacadastro = LocalDateTime.now();
+
+    @Getter @Setter
+    private Boolean ativo = true;
+
+    public Produto(){}
+
 }

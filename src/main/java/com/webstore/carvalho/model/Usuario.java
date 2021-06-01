@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.time.LocalDateTime;
 
 @Entity
 public class Usuario {
@@ -28,4 +29,12 @@ public class Usuario {
     @Getter @Setter
     private String password;
 
+    @Getter @Setter
+    @Column(name = "datacadastro")
+    private LocalDateTime datacadastro = LocalDateTime.now();
+
+    @Getter @Setter
+    private Boolean ativo = false;
+
+    public Usuario(){}
 }

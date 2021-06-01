@@ -10,6 +10,15 @@ import java.util.List;
 @ApplicationScoped
 public class Persistir <Entidade> {
 
+    /**
+     * CICLO DE VIDA JPA
+     *   NEW -> TRANSIENT -> persist() -> MANANGED -> commit()/flush() -> BD
+     *                      MANANGED <- DETACHED -> closed()/clear()
+     * Imagem representando ciclo devida JPA
+     * https://image.slidesharecdn.com/cefet-2013-04-130408163740-phpapp01/95/mapeamento-objetorelacional-com-java-persistence-api-11-638.jpg?cb=1365439124
+     */
+
+
     private static EntityManagerFactory emf;
     private EntityManager em;
     private Class<Entidade> classe;
@@ -132,6 +141,15 @@ public class Persistir <Entidade> {
     }
 
     /**
+     * Só deve ser usado quando estiver com estado DETACHED
+     * @param entidade
+     * @return
+     */
+    public Entidade atualizarUm(Entidade entidade){
+       return this.em.merge(entidade);
+    }
+
+    /**
      * Limpar Conexão
      */
     public void clearConexao() {
@@ -144,4 +162,5 @@ public class Persistir <Entidade> {
     public void fecharConexao() {
         em.close();
     }
+
 }

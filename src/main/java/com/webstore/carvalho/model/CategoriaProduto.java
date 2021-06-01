@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Table(name = "CATEGORIAPRODUTO", schema = "public")
 @Entity
@@ -18,10 +19,12 @@ public class CategoriaProduto {
     @Getter @Setter
     private String nome;
 
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(" +
-                "id = " + id + ", " +
-                "nome = " + nome + ")";
-    }
+    @Getter @Setter
+    @Column(name = "datacadastro")
+    private LocalDateTime datacadastro = LocalDateTime.now();
+
+    @Getter @Setter
+    private Boolean ativo = true;
+
+    public CategoriaProduto(){}
 }
