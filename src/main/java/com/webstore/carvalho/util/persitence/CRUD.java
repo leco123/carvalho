@@ -155,6 +155,7 @@ public class CRUD <Entidade> {
         // devido não saber o estado da entidade, se faz necessário reatribuir o
         // objeto (entidade) e definilo como estado manager,
         // pra isso basta setar objeto como manager e depois remover
+        // só para garantir que a entidade esta manager
         entidade = em.merge(entidade);
         em.remove(entidade);
     }
