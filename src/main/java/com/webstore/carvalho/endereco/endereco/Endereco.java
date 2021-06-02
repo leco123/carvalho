@@ -41,6 +41,8 @@ public class Endereco {
     @ManyToOne
     private Bairro bairro;
 
+    private long cep;
+
     private String numero;
 
     public Endereco(){}
