@@ -1,7 +1,7 @@
 package com.webstore.carvalho.testes;
 
-import com.webstore.carvalho.model.CategoriaProduto;
-import com.webstore.carvalho.model.Produto;
+import com.webstore.carvalho.produtocategoria.model.CategoriaProduto;
+import com.webstore.carvalho.produto.model.Produto;
 import com.webstore.carvalho.util.persitence.CRUD;
 
 import java.math.BigDecimal;

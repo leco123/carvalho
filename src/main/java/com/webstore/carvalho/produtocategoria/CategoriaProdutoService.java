@@ -1,4 +1,4 @@
-package com.webstore.carvalho.service;
+package com.webstore.carvalho.produtocategoria;
 
 import javax.enterprise.context.ApplicationScoped;
 

@@ -1,6 +1,6 @@
-package com.webstore.carvalho.model;
+package com.webstore.carvalho.usuario.model;
 
-import com.webstore.carvalho.util.persitence.EscopoPerfil;
+import com.webstore.carvalho.usuario.EscopoPerfil;
 import lombok.Getter;
 import lombok.Setter;
 

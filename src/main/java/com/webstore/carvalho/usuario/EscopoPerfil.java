@@ -1,4 +1,4 @@
-package com.webstore.carvalho.util.persitence;
+package com.webstore.carvalho.usuario;
 
 public enum EscopoPerfil {
 

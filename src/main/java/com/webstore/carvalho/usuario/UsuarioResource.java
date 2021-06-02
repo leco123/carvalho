@@ -1,12 +1,14 @@
-package com.webstore.carvalho.resource.usuario;
+package com.webstore.carvalho.usuario;
 
-import com.webstore.carvalho.model.Usuario;
+import com.webstore.carvalho.usuario.model.Usuario;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 import javax.annotation.security.PermitAll;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+@ApiResponse(description = "Usuários do Sistema")
 @Path("/usuarios")
 public class UsuarioResource {
 

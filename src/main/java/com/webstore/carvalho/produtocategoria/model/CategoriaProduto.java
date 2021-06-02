@@ -1,4 +1,4 @@
-package com.webstore.carvalho.model;
+package com.webstore.carvalho.produtocategoria.model;
 
 import lombok.Getter;
 import lombok.Setter;

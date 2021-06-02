@@ -1,5 +1,6 @@
-package com.webstore.carvalho.model;
+package com.webstore.carvalho.produto.model;
 
+import com.webstore.carvalho.produtocategoria.model.CategoriaProduto;
 import lombok.Getter;
 import lombok.Setter;
 

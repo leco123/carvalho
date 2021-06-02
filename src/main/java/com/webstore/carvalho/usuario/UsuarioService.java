@@ -1,7 +1,8 @@
-package com.webstore.carvalho.service;
+package com.webstore.carvalho.usuario;
 
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class ProdutoService {
+public class UsuarioService {
+
 }
