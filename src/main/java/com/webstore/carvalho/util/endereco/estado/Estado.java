@@ -1,6 +1,6 @@
-package com.webstore.carvalho.endereco.estado;
+package com.webstore.carvalho.util.endereco.estado;
 
-import com.webstore.carvalho.endereco.pais.Pais;
+import com.webstore.carvalho.util.endereco.pais.Pais;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

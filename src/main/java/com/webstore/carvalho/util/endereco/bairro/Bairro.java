@@ -1,8 +1,8 @@
-package com.webstore.carvalho.endereco.bairro;
+package com.webstore.carvalho.util.endereco.bairro;
 
-import com.webstore.carvalho.endereco.cidade.Cidade;
-import com.webstore.carvalho.endereco.estado.Estado;
-import com.webstore.carvalho.endereco.pais.Pais;
+import com.webstore.carvalho.util.endereco.cidade.Cidade;
+import com.webstore.carvalho.util.endereco.estado.Estado;
+import com.webstore.carvalho.util.endereco.pais.Pais;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

@@ -1,6 +1,6 @@
-package com.webstore.carvalho.endereco.pais;
+package com.webstore.carvalho.util.endereco.pais;
 
-import com.webstore.carvalho.endereco.continente.Continente;
+import com.webstore.carvalho.util.endereco.continente.Continente;
 import com.webstore.carvalho.util.model.Moeda;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

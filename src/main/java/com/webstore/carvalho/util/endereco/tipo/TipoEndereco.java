@@ -1,4 +1,4 @@
-package com.webstore.carvalho.endereco.tipo;
+package com.webstore.carvalho.util.endereco.tipo;
 
 public enum TipoEndereco {
 

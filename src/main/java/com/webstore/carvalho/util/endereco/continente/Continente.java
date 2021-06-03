@@ -1,4 +1,4 @@
-package com.webstore.carvalho.endereco.continente;
+package com.webstore.carvalho.util.endereco.continente;
 
 public enum Continente {
 

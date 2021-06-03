@@ -1,7 +1,7 @@
 package com.webstore.carvalho.unidade.model;
 
-import com.webstore.carvalho.endereco.endereco.Endereco;
-import com.webstore.carvalho.endereco.tipo.TipoEndereco;
+import com.webstore.carvalho.util.endereco.endereco.Endereco;
+import com.webstore.carvalho.util.endereco.tipo.TipoEndereco;
 import com.webstore.carvalho.util.model.Moeda;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
