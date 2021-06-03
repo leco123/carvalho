@@ -6,7 +6,7 @@ public enum Continente {
     CONTINENTEEUROPEU("Continente Europeu"),
     CONTINENTEASIATICO("Continente Asiático"),
     CONTINENTEAFRICANO("Continente Africano"),
-    CONTINENTEOCEANIA("Continente Ocenania"),
+    CONTINENTEOCEANIA("Continente Oceania"),
     CONTINENTEANTARTIDA("Continente Antártida");
 
     private String descricao;

@@ -2,8 +2,8 @@ package com.webstore.carvalho.endereco.tipo;
 
 public enum TipoEndereco {
 
-    RESIDENCIA("Endreço Residêncial"),
-    EMPRESA("Enderço Empresarial");
+    RESIDENCIA("Endereço Residêncial"),
+    EMPRESA("Endereço Empresarial");
 
     private String descricao;
 
