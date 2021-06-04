@@ -15,6 +15,7 @@ import javax.persistence.*;
  * Classe Model que representa o "Estado" de um País
  */
 @ApiModel(description = "Estado do País")
+@Table(schema = "principal")
 @SequenceGenerator(schema = "principal", name = "seq_estado", sequenceName = "seq_estado_api", allocationSize = 1)
 @Entity
 public class Estado {
@@ -38,8 +39,8 @@ public class Estado {
 
     @ApiModelProperty(name = "País onde fica localizado o estado")
     @Getter @Setter
-    @JoinColumn(name = "paisId", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "paisId", nullable = false, referencedColumnName = "paisId")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Pais pais;
 
     public Estado(){}

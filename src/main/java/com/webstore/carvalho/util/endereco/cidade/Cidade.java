@@ -16,6 +16,7 @@ import javax.persistence.*;
  * Classe Model que representa a "Cidade/Município" de um Estado o Provincia
  */
 @ApiModel(description = "Cidade do Estado")
+@Table(schema = "principal")
 @SequenceGenerator(schema = "principal", name = "seq_cidade", sequenceName = "seq_cidade_api", allocationSize = 1)
 @Entity
 public class Cidade {
@@ -34,13 +35,13 @@ public class Cidade {
 
     @ApiModelProperty(name = "País de Localização")
     @Getter @Setter
-    @JoinColumn(name = "paisId", nullable = false)
+    @JoinColumn(name = "paisId", nullable = false, referencedColumnName = "paisId")
     @ManyToOne
     private Pais pais;
 
     @ApiModelProperty(name = "Estado de Localização da Cidade")
     @Getter @Setter
-    @JoinColumn(name = "estadoId")
+    @JoinColumn(name = "estadoId", nullable = false, referencedColumnName = "estadoId")
     @ManyToOne
     private Estado estado;
 

@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @ApiModel(description = "Perfil do Usuário")
+@Table(schema = "principal")
 @SequenceGenerator(schema = "principal", name = "seq_perfil", sequenceName = "seq_perfil_api", allocationSize = 1)
 public class Perfil {
 
@@ -36,8 +37,6 @@ public class Perfil {
     @ApiModelProperty("Escopo do Perfil")
     @Enumerated(EnumType.STRING)
     @Getter @Setter
-    @JoinColumn(name = "escopoPerfilId")
-    @ManyToOne(fetch = FetchType.EAGER)
     @Column(nullable = false)
     private EscopoPerfil escopoPerfil;
 

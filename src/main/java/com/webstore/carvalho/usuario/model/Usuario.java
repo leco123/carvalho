@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @ApiModel(description = "Usuário do Sistema")
+@Table(schema = "principal")
 @SequenceGenerator(schema = "principal", name = "seq_usuario", sequenceName = "seq_usuario_api", allocationSize = 1)
 public class Usuario {
 

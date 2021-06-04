@@ -14,14 +14,15 @@ import javax.persistence.*;
  * Classe Model Moeda, representa a entidade "moeda", exemplo REAL, EURO, DÓLAR...
  */
 @ApiModel(description = "Moeda")
-@Entity
+@Table(schema = "principal")
 @SequenceGenerator(schema = "principal", name = "seq_moeda", sequenceName = "seq_moeda_api", allocationSize = 1)
+@Entity
 public class Moeda {
 
     @ApiModelProperty(name = "Identificação")
+    @Column(name = "moedaId")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_moeda")
-    @Column(name = "moedaId")
     @Getter
     private Long id;
 

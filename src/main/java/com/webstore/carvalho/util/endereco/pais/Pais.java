@@ -17,7 +17,8 @@ import javax.persistence.*;
  */
 @Entity
 @ApiModel(description = "País")
-@SequenceGenerator(schema = "principal", name = "seq_pais", sequenceName = "seq_pais_api",allocationSize = 1)
+@Table(schema = "principal")
+@SequenceGenerator(schema = "principal", name = "seq_pais", sequenceName = "seq_pais_api", allocationSize = 1)
 public class Pais {
 
     @ApiModelProperty(name = "Identificação")

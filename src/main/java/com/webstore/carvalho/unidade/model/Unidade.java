@@ -20,6 +20,7 @@ import javax.validation.constraints.Email;
  */
 @Entity
 @ApiModel(description = "Unidade/Estabelecimento")
+@Table(schema = "principal")
 @SequenceGenerator(schema = "principal", name = "seq_unidade", sequenceName = "seq_unidade_api", allocationSize = 1)
 public class Unidade {
 
@@ -40,7 +41,7 @@ public class Unidade {
     @Column(nullable = false)
     private Boolean principal;
 
-    @ApiModelProperty("Email principal da Unidade")
+    @ApiModelProperty("E-mail principal da Unidade")
     @Getter @Setter
     @Email
     @Column(nullable = false)
@@ -48,20 +49,20 @@ public class Unidade {
 
     @ApiModelProperty("Endereço da Unidade")
     @JoinColumn(name = "enderecoId", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @Getter @Setter
     private Endereco endereco;
 
     @ApiModelProperty("Tipo de Endereço")
     @Getter @Setter
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoEndereco tipoEndereco;
 
     @ApiModelProperty(name = "Moeda")
     @Getter @Setter
     @JoinColumn(name = "moedaId", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Moeda moeda;
 
     @ApiModelProperty("Unidade ativa no sistema")

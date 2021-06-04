@@ -1,35 +1,34 @@
 package com.webstore.carvalho.usuario;
 
 import com.webstore.carvalho.usuario.model.Usuario;
-import io.swagger.annotations.ApiModel;
+import com.webstore.carvalho.util.persitence.CRUD;
+import com.webstore.carvalho.util.persitence.ConsultaEntidade;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
-import javax.annotation.security.PermitAll;
-import javax.persistence.SequenceGenerator;
-import javax.transaction.Transactional;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import java.util.List;
 
-@ApiModel(value = "Usuario", description = "Usuários")
-
-@Path("/usuarios")
+@RequestScoped
 public class UsuarioResource {
 
-    @ApiModelProperty("Inclusão de Usuário")
-    @POST
-    @PermitAll
-    @Transactional
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void inserir(Usuario usuario) {
-        // Usuario.adicionar(usuario);
+    @Inject
+    private CRUD<Usuario> crud;
+
+    @Inject
+    private ConsultaEntidade<Usuario> consultaUsuario;
+
+    public void adicionarUsuario(Usuario usuario) {
+        try {
+            crud.incluirAtomico(usuario);
+        } catch (Exception e) {
+            throw new RuntimeException("Opss, não foi possível salvar, tente novamente ou entre em contato com nosso atendimento!");
+        }
     }
 
-    @ApiModelProperty("Lista de Usuários")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public void listar(){
-        //return Usuario.listAll();
+    public List<Usuario> consultarTodosUsuarios() {
+        return consultaUsuario.obterTodos();
     }
-
 }
