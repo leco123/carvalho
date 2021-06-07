@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-@ApplicationScoped
+//@ApplicationScoped
 public class CRUD <Entidade> {
 
     /**

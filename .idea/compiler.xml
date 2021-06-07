@@ -14,4 +14,10 @@
       <module name="carvalho" target="11" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="GENERATE_NO_WARNINGS" value="true" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="carvalho" options="" />
+    </option>
+  </component>
 </project>
