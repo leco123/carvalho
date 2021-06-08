@@ -1,10 +1,7 @@
 package com.webstore.carvalho.util.persitence;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 //@ApplicationScoped
@@ -19,20 +16,21 @@ public class CRUD <Entidade> {
      */
 
 
-    private static EntityManagerFactory emf;
+    //private static EntityManagerFactory emf;
+    @PersistenceContext
     private EntityManager em;
     private Class<Entidade> classe;
 
     /*
      * Bloco static, carrega junto com a classe
-     * */
+     *
     static {
         try {
-            emf = Persistence.createEntityManagerFactory("webstorecarvalho");
+        //    emf = Persistence.createEntityManagerFactory("webstorecarvalho");
         } catch (Exception e) {
             System.out.println("Opsss!!!! Falha na conexão com a base de dados!!!");
         }
-    }
+    }*/
 
     public CRUD() {
         this(null);
@@ -48,7 +46,7 @@ public class CRUD <Entidade> {
 
     public CRUD(Class<Entidade> classe) {
         this.classe = classe;
-        em = emf.createEntityManager();
+        // em = emf.createEntityManager();
     }
 
     /**
